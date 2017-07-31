@@ -1,0 +1,274 @@
+{
+  "contract_name": "TokenVested",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        },
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "grants",
+      "outputs": [
+        {
+          "name": "granter",
+          "type": "address"
+        },
+        {
+          "name": "value",
+          "type": "uint256"
+        },
+        {
+          "name": "cliff",
+          "type": "uint64"
+        },
+        {
+          "name": "vesting",
+          "type": "uint64"
+        },
+        {
+          "name": "start",
+          "type": "uint64"
+        },
+        {
+          "name": "revokable",
+          "type": "bool"
+        },
+        {
+          "name": "burnsOnRevoke",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "holder",
+          "type": "address"
+        }
+      ],
+      "name": "lastTokenIsTransferableDate",
+      "outputs": [
+        {
+          "name": "date",
+          "type": "uint64"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "name": "_value",
+          "type": "uint256"
+        },
+        {
+          "name": "_start",
+          "type": "uint64"
+        },
+        {
+          "name": "_cliff",
+          "type": "uint64"
+        },
+        {
+          "name": "_vesting",
+          "type": "uint64"
+        },
+        {
+          "name": "_revokable",
+          "type": "bool"
+        },
+        {
+          "name": "_burnsOnRevoke",
+          "type": "bool"
+        }
+      ],
+      "name": "grantVestedTokens",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "value",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "grantId",
+          "type": "uint256"
+        }
+      ],
+      "name": "NewTokenGrant",
+      "type": "event"
+    }
+  ],
+  "unlinked_binary": "0x6060604052341561000c57fe5b5b6104fb8061001c6000396000f300606060405263ffffffff60e060020a6000350416632c71e60a81146100375780636c182e99146100a75780639754a4d9146100df575bfe5b341561003f57fe5b610056600160a060020a0360043516602435610122565b60408051600160a060020a03909816885260208801969096526001604060020a039485168787015292841660608701529216608085015290151560a0840152151560c0830152519081900360e00190f35b34156100af57fe5b6100c3600160a060020a03600435166101a2565b604080516001604060020a039092168252519081900360200190f35b34156100e757fe5b610120600160a060020a03600435166024356001604060020a036044358116906064358116906084351660a435151560c435151561022e565b005b60016020528160005260406000208181548110151561013d57fe5b906000526020600020906003020160005b5080546001820154600290920154600160a060020a0390911693509091506001604060020a0380821691604060020a8104821691608060020a8204169060ff60c060020a820481169160c860020a90041687565b600160a060020a03811660009081526001602052604081205442915b8181101561022657600160a060020a0384166000908152600160205260409020805461021b9190839081106101ef57fe5b906000526020600020906003020160005b5060020154604060020a90046001604060020a03168461042c565b92505b6001016101be565b5b5050919050565b6000856001604060020a0316856001604060020a0316101580156102645750846001604060020a0316846001604060020a031610155b15156102705760006000fd5b600160a060020a038816600090815260016020819052604090912080549091810161029b8382610459565b916000526020600020906003020160005b60e060405190810160405280876102c45760006102c6565b335b600160a060020a03908116825260208083018e90526001604060020a038c81166040808601919091528c82166060808701919091528f83166080808801919091528d151560a0808901919091528d151560c09889015288518b54600160a060020a031916908816178b558886015160018c0155888401516002909b018054938a0151928a0151918a015199909801516001604060020a03199093169a85169a909a17604060020a608060020a031916604060020a9185169190910217608060020a60c060020a031916608060020a99909316989098029190911760c060020a60ff02191660c060020a951515959095029490941760c860020a60ff02191660c860020a961515969096029590951790915581518c815260001986019481019490945281519495508c81169433909116937ff9565aecd648a0466ffb964a79eeccdf1120ad6276189c687a6e9fe73984d9bb935081900390910190a35b5050505050505050565b6000816001604060020a0316836001604060020a0316101561044e5781610450565b825b90505b92915050565b81548183558181151161048557600302816003028360005260206000209182019101610485919061048b565b5b505050565b6104cc91905b808211156104c8578054600160a060020a031916815560006001820155600281018054600160d060020a0319169055600301610491565b5090565b905600a165627a7a7230582051d109aaf7310ea5d62c9a03196a19f0ad36aa7b9c368578b2ed742a2bb1857f0029",
+  "networks": {
+    "1501342529297": {
+      "events": {
+        "0xf9565aecd648a0466ffb964a79eeccdf1120ad6276189c687a6e9fe73984d9bb": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "grantId",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewTokenGrant",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xdae4dd50a008c7d185880ff56bf756fecc69f66a",
+      "updated_at": 1501356324259
+    },
+    "1501357331254": {
+      "events": {
+        "0xf9565aecd648a0466ffb964a79eeccdf1120ad6276189c687a6e9fe73984d9bb": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "grantId",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewTokenGrant",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xee32e6f09e993ea3e30c456ba4439f5fd74856c0",
+      "updated_at": 1501358771037
+    },
+    "1501390616905": {
+      "events": {
+        "0xf9565aecd648a0466ffb964a79eeccdf1120ad6276189c687a6e9fe73984d9bb": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "grantId",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewTokenGrant",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x932e470574303c96e304976529d5c6e6cd11f74c",
+      "updated_at": 1501390725644
+    },
+    "1501392777146": {
+      "events": {
+        "0xf9565aecd648a0466ffb964a79eeccdf1120ad6276189c687a6e9fe73984d9bb": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "grantId",
+              "type": "uint256"
+            }
+          ],
+          "name": "NewTokenGrant",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xd94d2e0dd2fe0919db21012356ba625cf23b189a",
+      "updated_at": 1501392786658
+    }
+  },
+  "schema_version": "0.0.5",
+  "updated_at": 1501392786658
+}
