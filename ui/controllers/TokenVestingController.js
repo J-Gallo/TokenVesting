@@ -41,6 +41,10 @@ class TokenVestingController {
 
     return false;
   }
+
+  // contract.methods.lastTokenIsTransferableDate("0x7838648829eef73ada65a1659f7259ed414e22a2").call({from: "0x7838648829eef73ada65a1659f7259ed414e22a2"}).then((result) => {
+  //   console.log(222, result);
+  // });
 }
 
 module.exports = TokenVestingController;
