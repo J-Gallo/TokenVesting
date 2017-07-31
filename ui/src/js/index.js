@@ -12,7 +12,23 @@ $('.tokenVesting-createContract').click(function() {
       "burnsOnRevoke": true
     },
     success: function (data) {
-     console.log('Ok', data);
+      console.log('Ok', data);
+    },
+    error: function () {
+      console.log('error');
+    }
+  });
+});
+
+$('.tokenVesting-lastTransferDate').click(function() {
+  $.ajax({
+    type: "POST",
+    url: '/lastTransferDate',
+    data: {
+      "holder": "0x7838648829eef73ada65a1659f7259ed414e22a2"
+    },
+    success: function (data) {
+      console.log('Ok', data);
     },
     error: function () {
       console.log('error');

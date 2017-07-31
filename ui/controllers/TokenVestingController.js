@@ -5,11 +5,13 @@ class TokenVestingController {
     this.web3 = web3;
     this.abi = abi;
     this.contractAddress = '0xd94d2e0dd2fe0919db21012356ba625cf23b189a';
+    this.contract = new web3.eth.Contract(abi, this.contractAddress);
   }
 
   grantVestedTokens(req, res) {
-    if (this._validateRequest(req.body)) {
-      const contract = this._createContract(this.contractAddress);
+    const body = req.body;
+    if (body && body.to && body.value && body.start && body.cliff && body.vesting && body.revokable && body.burnsOnRevoke) {
+      const contract = this.contract;
 
       contract.methods.grantVestedTokens(
         req.body.to,
@@ -34,17 +36,18 @@ class TokenVestingController {
     return contract;
   }
 
-  _validateRequest(body) {
-    if (body && body.to && body.value && body.start && body.cliff && body.vesting && body.revokable && body.burnsOnRevoke) {
-      return true;
+  lastTokenIsTransferableDate(req, res) {
+    if (req.body && req.body.holder) {
+      this.contract.methods.lastTokenIsTransferableDate(req.body.holder).call({from: "0x7838648829eef73ada65a1659f7259ed414e22a2"}).then((result) => {
+        console.log(222, result);
+        return res.send(result);
+      }).catch(() => {
+        return res.sendStatus(500);
+      });
+    } else {
+      return res.sendStatus(400);
     }
-
-    return false;
   }
-
-  // contract.methods.lastTokenIsTransferableDate("0x7838648829eef73ada65a1659f7259ed414e22a2").call({from: "0x7838648829eef73ada65a1659f7259ed414e22a2"}).then((result) => {
-  //   console.log(222, result);
-  // });
 }
 
 module.exports = TokenVestingController;
