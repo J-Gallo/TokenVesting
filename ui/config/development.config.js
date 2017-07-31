@@ -6,6 +6,24 @@ exports.abi =  () => {
       "constant": true,
       "inputs": [
         {
+          "name": "_holder",
+          "type": "address"
+        }
+      ],
+      "name": "tokenGrantsCount",
+      "outputs": [
+        {
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
           "name": "",
           "type": "address"
         },
@@ -60,6 +78,36 @@ exports.abi =  () => {
       "outputs": [
         {
           "name": "date",
+          "type": "uint64"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_holder",
+          "type": "address"
+        },
+        {
+          "name": "_grantIndex",
+          "type": "uint64"
+        }
+      ],
+      "name": "getSpecificGrant",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        },
+        {
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "name": "",
           "type": "uint64"
         }
       ],

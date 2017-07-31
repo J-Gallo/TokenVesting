@@ -3,11 +3,11 @@ $('.tokenVesting-createContract').click(function() {
     type: "POST",
     url: '/grantVestedToken',
     data: {
-      "to": "0x7838648829eef73ada65a1659f7259ed414e22a2",
-      "value": 100,
+      "to": "0x0606c95871e450183c664ea3292af08b580d845d",
+      "value": 10,
       "start": 1,
-      "cliff": 10,
-      "vesting": 200,
+      "cliff": 2,
+      "vesting": 20,
       "revokable": true,
       "burnsOnRevoke": true
     },
@@ -25,7 +25,40 @@ $('.tokenVesting-lastTransferDate').click(function() {
     type: "POST",
     url: '/lastTransferDate',
     data: {
-      "holder": "0x7838648829eef73ada65a1659f7259ed414e22a2"
+      "holder": "0x0606c95871e450183c664ea3292af08b580d845d"
+    },
+    success: function (data) {
+      console.log('Ok', data);
+    },
+    error: function () {
+      console.log('error');
+    }
+  });
+});
+
+$('.tokenVesting-getTokenCount').click(function() {
+  $.ajax({
+    type: "POST",
+    url: '/getTokenCount',
+    data: {
+      "holder": "0x0606c95871e450183c664ea3292af08b580d845d"
+    },
+    success: function (data) {
+      console.log('Ok', data);
+    },
+    error: function () {
+      console.log('error');
+    }
+  });
+});
+
+$('.tokenVesting-getSpecificGrant').click(function() {
+  $.ajax({
+    type: "POST",
+    url: '/getTokenGrant',
+    data: {
+      "holder": "0x0606c95871e450183c664ea3292af08b580d845d",
+      "index": 1
     },
     success: function (data) {
       console.log('Ok', data);
